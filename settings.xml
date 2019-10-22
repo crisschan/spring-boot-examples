@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    
+	<servers>
+        <server>
+            <id>nexus-releases</id>
+            <username>deployment</username>
+            <password>deployment123</password>
+        </server>
+        <server>
+            <id>nexus-snapshots</id>
+            <username>deployment</username>
+            <password>deployment123</password>
+        </server>
+    </servers>
+    
+    <mirrors>
+        
+		<mirror>
+            <id>nexus-releases</id>
+            <mirrorOf>*</mirrorOf>
+            <url>http://maven.enncloud.cn/content/groups/public/</url>
+			<!-- <url>http://repo1.maven.org/maven2/</url> -->
+        </mirror>
+        <mirror>
+            <id>nexus-snapshots</id>
+            <mirrorOf>*</mirrorOf>
+             <url>http://maven.enncloud.cn/content/repositories/snapshots/</url> 
+			 <!-- <url>http://repo1.maven.org/maven2/</url> -->
+        </mirror>
+<!-- 	
+        <mirror>
+            <id>nexus-mymvn</id>
+            <mirrorOf>*</mirrorOf>
+            <url>http://repo1.maven.org/maven2/</url>
+        </mirror> -->		
+    </mirrors>
+
+    <profiles>
+        <profile>
+            <id>nexus</id>
+            <repositories>                            
+			    <repository>
+                    <id>nexus-releases</id>
+                     <url>http://maven.enncloud.cn/content/groups/public/</url> 
+					<!-- <url>http://repo1.maven.org/maven2/</url> -->
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>nexus-snapshots</id>
+                      <url>http://maven.enncloud.cn/content/repositories/snapshots/</url> 
+					 <!-- <url>http://repo1.maven.org/maven2/</url> -->
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>nexus-releases</id>
+                      <url>http://maven.enncloud.cn/content/groups/public/</url> 
+					 <!-- <url>http://repo1.maven.org/maven2/</url> -->
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>nexus-snapshots</id>
+                   <url>http://maven.enncloud.cn/content/repositories/snapshots/</url> 
+					   <!-- <url>http://repo1.maven.org/maven2/</url> -->
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </pluginRepository>			
+<!--                 <pluginRepository>
+                    <id>nexus-mymvn</id>
+                    <url>http://repo1.maven.org/maven2/</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </pluginRepository>	 -->			
+            </pluginRepositories>
+        </profile>
+
+		<!--<profile>
+		  <id>dev</id>
+		  <repositories>
+			<repository>
+			  <id>Nexus</id>
+			  <url>http://212.129.144.221:8081/repository/maven-public/</url>
+			  <releases>
+				<enabled>true</enabled>
+			  </releases>
+			  <snapshots>
+				<enabled>true</enabled>
+			  </snapshots>
+			</repository>
+		  </repositories>
+		</profile>-->
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>nexus</activeProfile>
+		<!--<activeProfile>dev</activeProfile>-->
+    </activeProfiles>
+
+</settings>
